@@ -1,15 +1,27 @@
 import React from "react";
+import Counter from "../Counter/Counter";
 import styles from "./task.module.css";
 
-const Task = () => {
+const Task = (props) => {
   // NOTE: do not delete `data-testid` key value pair
+
+
   return (
-    <li data-testid="task" className={styles.task}>
-      <input type="checkbox" data-testid="task-checkbox" />
-      <div data-testid="task-text"></div>
-      {/* Counter here */}
-      <button data-testid="task-remove-button"></button>
+    <div className="taskbox">
+       <li data-testid="task" className={styles.task}>
+
+      <input type="checkbox" data-testid="task-checkbox" className="circle" />
+
+        
+      <div data-testid="task-text">{props.text} </div>
+      {/* Counter here */    <Counter count = {props.count}
+       handleIncrement={props.handleIncrement}
+       handleDecrement={props.handleDecrement}
+      ></Counter>}
+      <button data-testid="task-remove-button" className="btn">X</button>
     </li>
+    </div>
+   
   );
 };
 
