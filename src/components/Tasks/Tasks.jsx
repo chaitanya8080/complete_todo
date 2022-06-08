@@ -7,17 +7,8 @@ const Tasks = () => {
    
   const [todo,setTodo]=useState([])
   const [page,setPage]=useState(1)
-  const [count, setCount] = useState(0)
+  const [count , setCount]=useState(0);
 
-  
-  const handleIncrement =()=>{
-    setCount(count+1);
-}
-const handleDecrement =()=>{
-  if(count>1){
-  setCount(count-1);
-  }
-}
 
   useEffect(()=>{
   
@@ -28,6 +19,19 @@ const handleDecrement =()=>{
    
 },[page])
      console.log(todo)
+
+
+   const Increment =()=>{
+     setCount(count+1);
+   }
+   
+   const Decrement =()=>{
+     if(count>1){
+    setCount(count-1);
+     }
+  }
+
+
   return (
     <>
       <ul data-testid="tasks" className={styles.tasks }>
@@ -36,11 +40,11 @@ const handleDecrement =()=>{
         {todo.map((e)=>(
           <div style={{display:"flex",textAlign:"center",justifyContent:"center"}}>
              <Task text={e.text} id={e.id} count={e.count}
-              handleIncrement={handleIncrement}
-              handleDecrement={handleDecrement}
               
-              ></Task>
-              {/* <h4>{e.id}</h4> */}
+              Increment ={Increment}
+              Decrement ={Decrement}
+             
+             ></Task>
               <h4></h4>
 
           </div>
@@ -51,7 +55,7 @@ const handleDecrement =()=>{
         {/* Show when No Tasks are present */}
       </div>
       <h3>{page}</h3>
-    <button disabled={page===1} onClick={()=>setPage(page-1)}>Prev</button>
+    <button disabled={page===1} onClick={()=>setPage(page-1)}>Pre</button>
     <button onClick={()=>setPage(page+1)}>Next</button>
     </>
   );

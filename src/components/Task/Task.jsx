@@ -14,9 +14,10 @@ const Task = (props) => {
 
         
       <div data-testid="task-text">{props.text} </div>
-      {/* Counter here */    <Counter count = {props.count}
-       handleIncrement={props.handleIncrement}
-       handleDecrement={props.handleDecrement}
+      {/* Counter here */    <Counter count = {props.count}  
+            Increment ={props.Increment}
+            Decrement ={props.Decrement}
+      
       ></Counter>}
       <button data-testid="task-remove-button" className="btn">X</button>
     </li>
